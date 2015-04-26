@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 DOCS_REPO=${DOCS_REPO:-"git@github.com:UnoLauncher/UnoLauncher.github.io.git"}
+FILES_REPO=${FILES_REPO:-"git@github.com:UnoLauncher/Files.git"}
 LEX_DEPLOY=https://github.com/LexBot/Deploy.git
-DEPLOY_SCRIPTS=/tmp/histacom/deploy
+DEPLOY_SCRIPTS=/tmp/unolauncher/deploy
+FILES=/tmp/unolauncher/Files
 
 # Get the deploy scripts
 git clone $LEX_DEPLOY $DEPLOY_SCRIPTS
@@ -33,6 +35,15 @@ if [[ $TRAVIS_BRANCH = source ]]; then
     git commit -q -m "Deploy $(date)"
     git push -q -f origin master
     echo "Done! Successfully published docs!"
+
+    # Copy to Files repo
+    git clone $FILES_REPO $FILES
+    cp news.json $FILES/launcher/json/news.json
+    cd $FILES
+    git add --all .
+    git commit -q -m "Deploy $(date)"
+    git push -q -f
+    echo "Done! Successfully published to Files repo!"
 fi
 
 # Kill the ssh-agent because we're done with deploying
