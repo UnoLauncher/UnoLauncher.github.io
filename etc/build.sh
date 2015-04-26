@@ -2,7 +2,7 @@
 
 DOCS_REPO=${DOCS_REPO:-"git@github.com:UnoLauncher/UnoLauncher.github.io.git"}
 LEX_DEPLOY=https://github.com/LexBot/Deploy.git
-DEPLOY_SCRIPTS=/tmp/unolauncher/deploy
+DEPLOY_SCRIPTS=/tmp/histacom/deploy
 
 # Get the deploy scripts
 git clone $LEX_DEPLOY $DEPLOY_SCRIPTS
