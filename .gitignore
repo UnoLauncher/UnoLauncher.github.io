@@ -139,5 +139,6 @@ Session.vim
 db.json
 *.log
 node_modules/
+!node_modules/hexo-generator-atlnews/
 public/
 .deploy*/
