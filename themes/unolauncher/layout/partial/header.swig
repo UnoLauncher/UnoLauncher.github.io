@@ -19,6 +19,9 @@
                 <li>
                     <a href="/downloads">Downloads</a>
                 </li>
+                <li>
+                    <a href="/irc">Contact us</a>
+                </li>
             </ul>
         </div>
     </div>
